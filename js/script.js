@@ -1,14 +1,5 @@
-// Condicional
-// Ciclo
-// Funciones
-
-let product;
-let priceProduct;
-const iva = x => x * 0.21;
 let savedPass = '1234';
 let savedUserName = 'Facundo';
-let contador = 3;
-let cicloWhile = true
 
 
 function login() {
@@ -21,14 +12,45 @@ function login() {
         } else if (i == 1) {
             alert('Te enviaremos un email a tu correo electronico para restaurar tu contraseña')
         } else {
-            alert('Usuario y/o contraseña incorrecta, volve a intentarlo, te quedan ' + ( i - 1 ) + ' intentos.')
+            alert('Usuario y/o contraseña incorrecta, volve a intentarlo, te quedan ' + (i - 1) + ' intentos.')
         }
     }
 }
 login();
 
+let clothesOptions = prompt('Elegi una prenda de ropa para comprar y le calculamos el iva: \n1 - Remera \n2 - Jean \n3 - Buzo \n4 - Campera \n5 - Zapatillas \nPresioná X para finalizar')
+const iva = x => x * 0.21;
+
 
 if (contador == true) {
-    alert('hola')
+
+    while (clothesOptions != 'X' && clothesOptions != 'x') {
+
+        switch (clothesOptions) {
+            case '1':
+                alert('El precio de la remera es $4300 mas el iva quedaria en $' + (iva(4300) + 4300));
+                break;
+            case '2':
+                alert('El precio del jean es $6000 mas el iva quedaria en $' + (iva(6000) + 6000));
+                break;
+            case '3':
+                alert('El precio del buzo es de $21000 mas el iva quedaria en $' + (iva(21000) + 21000));
+                break;
+            case '4':
+                alert('El precio de la campera es de $30000 mas el iva quedaria en $' + (iva(30000) + 30000));
+                break;
+            case '5':
+                alert('El precio de las zapatillas son de $28000 mas el iva quedaria en $' + (iva(28000) + 28000));
+                break;
+            default:
+                alert('Elegiste una opcion incorrecta');
+                break;
+        }
+
+        clothesOptions = prompt('Elegi una prenda de ropa para comprar y le calculamos el iva: \n1 - Remera \n2 - Jean \n3 - Buzo \n4 - Campera \n5 - Zapatillas \nPresioná X para finalizar')
+    }
+
 }
+
+alert('Fin del codigo')
 
