@@ -3,26 +3,28 @@ let savedUserName = 'Facundo';
 
 
 function login() {
+    let logged = false;
     for (let i = 4; i > 0; i--) {
         let nameUser = prompt('Ingresá tu nombre de usuario (Facundo)')
         let passUser = prompt('Ingresá tu contraseña (1234)')
         if (savedPass == passUser && savedUserName == nameUser) {
             alert('Bienvenido/a ' + nameUser)
-            return contador = true
+            logged = true
+            break;
         } else if (i == 1) {
             alert('Te enviaremos un email a tu correo electronico para restaurar tu contraseña')
         } else {
             alert('Usuario y/o contraseña incorrecta, volve a intentarlo, te quedan ' + (i - 1) + ' intentos.')
         }
     }
+    return logged;
 }
-login();
 
-let clothesOptions = prompt('Elegi una prenda de ropa para comprar y le calculamos el iva: \n1 - Remera \n2 - Jean \n3 - Buzo \n4 - Campera \n5 - Zapatillas \nPresioná X para finalizar')
-const iva = x => x * 0.21;
+if (login()) {
 
 
-if (contador == true) {
+    let clothesOptions = prompt('Elegi una prenda de ropa para comprar y le calculamos el iva: \n1 - Remera \n2 - Jean \n3 - Buzo \n4 - Campera \n5 - Zapatillas \nPresioná X para finalizar')
+    const iva = x => x * 0.21;
 
     while (clothesOptions != 'X' && clothesOptions != 'x') {
 
