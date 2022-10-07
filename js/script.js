@@ -105,7 +105,6 @@ while (continuar) {
 
     videojuegos.push(juegos);
     juegos.asignarId(videojuegos);
-    console.log(videojuegos);
 }
 
 // fin de pedido
