@@ -71,7 +71,7 @@ const productosNuevo = [
     new Producto(8, "Remera", 60, "wood", "La remera se detalla con un logotipo de Essentials en un flocado de terciopelo tonal que recuerda a los uniformes atléticos antiguos. Una etiqueta de goma Essentials está cosida en el cuello trasero.", "./img/essential-wood.jpg"), */
 ];
 
-const producto = new Producto(); // instancia de clases, llamar para acceder a los metodos de la clase
+const producto = new Producto(); // instancia de clases, llamar para acceder a los metodos de la clase.
 producto.listarProductos();
 
 const botonCompra = document.querySelectorAll(".btn-compra");
