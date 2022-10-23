@@ -1,164 +1,104 @@
-/* let savedPass = '1234';
-let savedUserName = 'Facundo';
+let carrito = [];
 
 
-function login() {
-    let logged = false;
-    for (let i = 4; i > 0; i--) {
-        let nameUser = prompt('Ingresá tu nombre de usuario (Facundo)')
-        let passUser = prompt('Ingresá tu contraseña (1234)')
-        if (savedPass == passUser && savedUserName == nameUser) {
-            alert('Bienvenido/a ' + nameUser)
-            logged = true
-            break;
-        } else if (i == 1) {
-            alert('Te enviaremos un email a tu correo electronico para restaurar tu contraseña')
-        } else {
-            alert('Usuario y/o contraseña incorrecta, volve a intentarlo, te quedan ' + (i - 1) + ' intentos.')
-        }
-    }
-    return logged;
-}
-
-if (login()) {
+const btnLogin = document.querySelector(".btn-dark"),
+    carritoItemSuma = document.getElementById("carrito-item-suma"),
+    conjuntoDeProductos = document.querySelector(".conjunto-de-productos");
 
 
-    let clothesOptions = prompt('Elegi una prenda de ropa para comprar y le calculamos el iva: \n1 - Remera \n2 - Jean \n3 - Buzo \n4 - Campera \n5 - Zapatillas \nPresioná X para finalizar').toUpperCase()
-    const iva = x => x * 0.21;
-
-    while (clothesOptions != 'X') {
-
-        switch (clothesOptions) {
-            case '1':
-                alert('El precio de la remera es $4300 mas el iva quedaria en $' + (iva(4300) + 4300));
-                break;
-            case '2':
-                alert('El precio del jean es $6000 mas el iva quedaria en $' + (iva(6000) + 6000));
-                break;
-            case '3':
-                alert('El precio del buzo es de $21000 mas el iva quedaria en $' + (iva(21000) + 21000));
-                break;
-            case '4':
-                alert('El precio de la campera es de $30000 mas el iva quedaria en $' + (iva(30000) + 30000));
-                break;
-            case '5':
-                alert('El precio de las zapatillas son de $28000 mas el iva quedaria en $' + (iva(28000) + 28000));
-                break;
-            default:
-                alert('Elegiste una opcion incorrecta');
-                break;
-        }
-
-        clothesOptions = prompt('Elegi una prenda de ropa para comprar y le calculamos el iva: \n1 - Remera \n2 - Jean \n3 - Buzo \n4 - Campera \n5 - Zapatillas \nPresioná X para finalizar')
-    }
-
-}
-
-alert('Fin del codigo') */
-
-
-class Videojuego {
-
-    constructor(nombre, genero, fecha, modo, empresa, id) {
-        this.nombre = nombre;
-        this.genero = genero;
-        this.fecha = parseInt(fecha);
-        this.modo = modo;
-        this.empresa = empresa;
+class Producto {
+    constructor(id, nombre, precio, color, descripcion, imagen) {
         this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.color = color;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+    }
+
+    listarProductos() {
+        let container = document.getElementById("container")
+        let cardgroup = document.createElement('div')
+        cardgroup.classList.add("card-group")
+        container.appendChild(cardgroup)
+        for (let i = 0; i < productosNuevo.length; i++) {
+            let div = document.createElement('div')
+            div.classList.add("card")
+            div.innerHTML = ` 
+            <img class="img-cards" src="${productosNuevo[i].imagen}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">${productosNuevo[i].nombre}</h5>
+            <hr>
+            <p class="card-text">${productosNuevo[i].descripcion}</p>
+            <button id="${productosNuevo[i].id}" type="button" class="btn-compra btn btn-dark">Comprar</button>
+            </div>
+            `;
+            cardgroup.appendChild(div)
+        }
     }
 
 
-    asignarId(array) {
-        this.id = array.length;
+    agregarProductoCarrito(producto) {
+        let coincidencia = productosNuevo.filter(x => x.id == producto)
+        carrito.push(coincidencia)
+
+        let articulo 
+        
+        for (let i = 0; i < carrito.length; i++) {
+            for (let x = 0; x < carrito[i].length; x++) {
+                articulo = carrito[i][x];
+            }
+        }
+        
+        let container = document.getElementById("modal")
+        let div = document.createElement('div')
+        div.innerHTML = `
+        <p>Nombre: ${articulo.nombre}</p>
+        <p>Precio: ${articulo.precio}</p>
+        `
+        container.appendChild(div)
     }
 }
 
-
-const videojuegos = [
-    new Videojuego("League of Legends", "MOBA", 2009, "Multiplayer", "Riot Games", 1),
-    new Videojuego("Dota", "MOBA", 2003, "Multiplayer", "IceFrog", 2),
-    new Videojuego("Dota 2", "MOBA", 2013, "Multiplayer", "Valve Corporation y IceFrog", 3),
-    new Videojuego("Counter-Strike: Global Offensive", "Shooter", 2012, "Multiplayer", "Valve Corporation", 4),
-    new Videojuego("Apex Legends", "Battle Royale", 2019, "Multiplayer", "Respawn Entertainment", 5),
-    new Videojuego("Grand Theft Auto V", "Accion y Aventura, Juego de mundo abierto", 2013, "Singleplayer y Multiplayer", "Rockstar Games", 6),
-    new Videojuego("Minecraft", "Supervivencia, Accion y Aventura, Sandbox", 2009, "Singleplayer y Multiplayer", "Mojang Studios", 7)
-
+const productosNuevo = [
+    new Producto(1, "Buzo", 120, "canary", "El ajuste relajado del buzo con capucha de polar está diseñado con una silueta más voluminosa en el cuerpo y sin dobladillo en la cintura para brindar libertad de movimiento.", "./img/hoodie-canary.jpg"),
+    new Producto(2, "Buzo", 120, "off-black", "El ajuste relajado del buzo con capucha de polar está diseñado con una silueta más voluminosa en el cuerpo y sin dobladillo en la cintura para brindar libertad de movimiento.", "./img/hoodie-off-black.jpg"),
+    new Producto(3, "Buzo", 120, "wood", "El ajuste relajado del buzo con capucha de polar está diseñado con una silueta más voluminosa en el cuerpo y sin dobladillo en la cintura para brindar libertad de movimiento.", "./img/hoodie-wood.jpg"),
+    new Producto(4, "Jogging", 90, "off-black", "El nuevo jogging está diseñado con una pernera recta más holgada y se actualiza con un tratamiento de logo flocado inspirado en los joggings atléticos antiguos. Un logotipo aterciopelado de Essentials Fear of God está en la pierna izquierda, y una etiqueta de goma de Essentials está cosida en el centro del frente.", "./img/jogging-off-black.jpg"),
+    new Producto(5, "Jogging", 90, "wood", "El nuevo jogging está diseñado con una pernera recta más holgada y se actualiza con un tratamiento de logo flocado inspirado en los joggings atléticos antiguos. Un logotipo aterciopelado de Essentials Fear of God está en la pierna izquierda, y una etiqueta de goma de Essentials está cosida en el centro del frente.", "./img/jogging-wood.jpg"),
+    new Producto(6, "Remera", 60, "off-black", "La remera se detalla con un logotipo de Essentials en un flocado de terciopelo tonal que recuerda a los uniformes atléticos antiguos. Una etiqueta de goma Essentials está cosida en el cuello trasero.", "./img/essential-off-black.jpg"),
+    /* new Producto(7, "Remera", 60, "smoke", "La remera se detalla con un logotipo de Essentials en un flocado de terciopelo tonal que recuerda a los uniformes atléticos antiguos. Una etiqueta de goma Essentials está cosida en el cuello trasero.", "./img/essential-smoke.jpg"),
+    new Producto(8, "Remera", 60, "wood", "La remera se detalla con un logotipo de Essentials en un flocado de terciopelo tonal que recuerda a los uniformes atléticos antiguos. Una etiqueta de goma Essentials está cosida en el cuello trasero.", "./img/essential-wood.jpg"), */
 ];
 
+const producto = new Producto(); // instancia de clases, llamar para acceder a los metodos de la clase
+producto.listarProductos();
 
-// Pedido de ingreso de juegos
+const botonCompra = document.querySelectorAll(".btn-compra");
 
-let continuar = true;
+botonCompra.forEach(boton => {
+    boton.addEventListener("click", (e) => {
+        producto.agregarProductoCarrito(e.target.id)
+    })
+});
 
-while (continuar) {
-    let ingreso = prompt('Ingresa un nuevo juego a la lista: Nombre del juego, Género, Fecha de estreno, Modo de juego, Empresa. Separados por una barra diagonal (/). Ingresa X para finalizar');
+let contador = 0;
 
-    if (ingreso.toUpperCase() == "X") {
-        continuar = false;
-        break;
-    }
+botonCompra.forEach(elemento => {
+    elemento.addEventListener("click", () => {
+        contador++
+        carritoItemSuma.innerHTML = `${contador}`
+    })
 
-    let datos = ingreso.split("/");
-    const juegos = new Videojuego(datos[0], datos[1], datos[2], datos[3], datos[4])
+});
 
+const btnCarrito = document.getElementById("btn-carrito");
 
-    videojuegos.push(juegos);
-    juegos.asignarId(videojuegos);
-}
-
-// fin de pedido
-
-// ordenar el array
-
-let criterio = prompt("Elegí un criterio deseado:\n1 - Nombre del juego (A - Z) \n2 - Nombre del juego (Z - A) \n3 - Fecha de publicacion (Mas viejo a más nuevo)")
-
-function ordenar(criterio, array) {
-
-    let arrayOrdenado = array.slice(0);
-
-    switch (criterio) {
-        case "1":
-            let nombreAscendente = arrayOrdenado.sort((a, b) => a.nombre.localeCompare(b.nombre))
-            return nombreAscendente;
-
-        case "2":
-            let nombreDescendente = arrayOrdenado.sort((a, b) => b.nombre.localeCompare(a.nombre))
-            return nombreDescendente;
-
-        case "3":
-            return arrayOrdenado.sort((a, b) => a.fecha - b.fecha);
-
-        default:
-            alert("No es un criterio válido")
-            break;
-    }
-
-}
-
-// fin del ordenado
-
-function crearStringResultado(array) {
-    let info = "";
-    array.forEach(elemento => {
-
-        info += "Nombre del juego : " + elemento.nombre + "\nGénero: " + elemento.genero + "\nFecha de salida: " + elemento.fecha + "\nModo de juego: " + elemento.modo + "\nEmpresa que lo Desarrolló: " + elemento.empresa + "\n\n"
-
-    });
-
-    return info;
-}
+btnCarrito.addEventListener("click", (e) => {
+    e.preventDefault()
+}) 
 
 
-alert(crearStringResultado(ordenar(criterio, videojuegos)))
 
-let juegoElegido = prompt("Escribí algun nombre de un juego para ver si lo tenemos en nuestro catalogo")
 
-const filtrado = videojuegos.filter((juegos) => juegos.nombre.toLowerCase().includes(juegoElegido.toLowerCase()))
 
-if (filtrado.legnth == 0) {
-    alert("No encontramos ninguna coincidendia en nuestro catalogo")
-} else {
-    const imprimible = filtrado.map((juegos) => juegos.nombre)
-    alert("Los juegos de nuestro catalogo son: \n" + imprimible.join("\n"))
-}

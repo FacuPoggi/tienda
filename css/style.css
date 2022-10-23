@@ -1,0 +1,126 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+    font-size: 66.5%;
+}
+
+
+body{
+    background-color: #202020;
+    font-family: 'Mulish', sans-serif;
+}
+
+.navbar-brand{
+    font-size: 2rem;
+    background-color: #202020;
+    color: white !important;
+    padding: 10px;
+}
+
+
+.nav-item{
+    font-size: 2.4rem;
+}
+
+.dropdown-item{
+    font-size: 1.2rem;
+}
+
+.modal-title{
+    font-size: 2rem;
+}
+
+.modal-btn{
+    font-size: 1.5rem;
+}
+
+.input-login{
+    font-size: 1.5rem;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+
+.img-cards{
+    width: 70%;
+    object-fit: cover;
+    text-align: center;
+}
+
+.card-group{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-self: center;
+    align-items: center;
+}
+
+.card{
+    background-color: #F6F6F6;
+    align-items: center;
+    margin: 50px;
+    margin-left: 100px;
+    min-width: 300px;
+    max-width: 320px;
+}
+
+.card-title{
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.card-text{
+    font-size: 1.5rem;
+}
+
+.btn-compra{
+    font-size: 2rem;
+}
+
+.btn-dark{
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+.btn-cierre{
+    background-color: lightgray;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+.btn-dark:hover{
+    background-color: whitesmoke;
+    color: #202020;
+    border: #202020 solid 2px;
+}
+
+.btn-cierre:hover{
+    background-color: whitesmoke;
+    color: #202020;
+    border: #202020 solid 2px;
+}
+
+#btn-carrito{
+    background-color: #F8F9FA;
+    border: #F8F9FA;
+    position: relative;
+}
+
+.carrito{
+    width: 60px;
+    height: 35px;
+}
+
+.carrito-contador{
+    position: absolute;
+    left: 23px;
+    top: 1px;
+    font-size: 1.3rem;
+    background-color: #F8F9FA;
+    width: 15px;
+}
+
+
+.modal-body p{
+    font-size: 1.4rem;
+}
