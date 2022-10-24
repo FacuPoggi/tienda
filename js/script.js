@@ -3,7 +3,16 @@ let carrito = [];
 
 const btnLogin = document.querySelector(".btn-dark"),
     carritoItemSuma = document.getElementById("carrito-item-suma"),
-    conjuntoDeProductos = document.querySelector(".conjunto-de-productos");
+    conjuntoDeProductos = document.querySelector(".conjunto-de-productos"),
+    btnCompraModal = document.getElementById("btn-compra-modal");
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("carrito")) {
+        carrito = JSON.parse(localStorage.getItem("carrito"))
+    }
+})
+
+
 
 
 class Producto {
@@ -34,6 +43,9 @@ class Producto {
             </div>
             `;
             cardgroup.appendChild(div)
+
+
+
         }
     }
 
@@ -42,14 +54,14 @@ class Producto {
         let coincidencia = productosNuevo.filter(x => x.id == producto)
         carrito.push(coincidencia)
 
-        let articulo 
-        
+        let articulo
+
         for (let i = 0; i < carrito.length; i++) {
             for (let x = 0; x < carrito[i].length; x++) {
                 articulo = carrito[i][x];
             }
         }
-        
+
         let container = document.getElementById("modal")
         let div = document.createElement('div')
         div.innerHTML = `
@@ -57,7 +69,15 @@ class Producto {
         <p>Precio: ${articulo.precio}</p>
         `
         container.appendChild(div)
+
+
+        localStorage.setItem("carrito", JSON.stringify(carrito))
+
+        carritoItemSuma.innerText = carrito.length
+
     }
+
+
 }
 
 const productosNuevo = [
@@ -82,22 +102,16 @@ botonCompra.forEach(boton => {
     })
 });
 
-let contador = 0;
-
-botonCompra.forEach(elemento => {
-    elemento.addEventListener("click", () => {
-        contador++
-        carritoItemSuma.innerHTML = `${contador}`
-    })
-
-});
-
 const btnCarrito = document.getElementById("btn-carrito");
 
 btnCarrito.addEventListener("click", (e) => {
     e.preventDefault()
-}) 
+})
 
+
+btnCompraModal.addEventListener("click", () => {
+    alert("Gracias por tu compra")
+})
 
 
 
