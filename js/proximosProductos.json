@@ -1,0 +1,15 @@
+[
+    {
+        "imagen": "./img/essential-the-california-coral.jpg",
+        "nombre": "California",
+        "descripcion": "California es un calzado sin cordones sin respaldo con un diseño limpio y escultural que enfatiza estrictamente la funcionalidad, con una construcción sin respaldo para ponerse y quitarse con facilidad, una ventilación interna para proporcionar flujo de aire y una suela elevada para tracción. El zapato está completamente hecho de gomaespuma innovadora y producido en Italia con la tecnología patentada XL Extralight®.",
+        "precio": 205.00
+    },
+    {
+        "imagen": "./img/essential-tennis-mid-tobacco.jpg",
+        "nombre": "Buzo",
+        "descripcion": "La clásica zapatilla de media cancha de tenis regresa en colores neutros en tonos tierra que combinan con la colección Essentials Spring 2022. La zapatilla se inspira en el diseño de Fear of God con una suela de goma de papel vintage esculpida y está hecha a mano con cuero nubuck en Italia.",
+        "precio": 305.00
+        
+    }
+]

@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: 0;
@@ -6,12 +6,12 @@
 }
 
 
-body{
+body {
     background-color: #202020;
     font-family: 'Mulish', sans-serif;
 }
 
-.navbar-brand{
+.navbar-brand {
     font-size: 2rem;
     background-color: #202020;
     color: white !important;
@@ -19,45 +19,42 @@ body{
 }
 
 
-.nav-item{
+.nav-item {
     font-size: 2.4rem;
 }
 
-.dropdown-item{
+.dropdown-item {
     font-size: 1.2rem;
 }
 
-.modal-title{
+.modal-title {
     font-size: 2rem;
 }
 
-.modal-btn{
+.modal-btn {
     font-size: 1.5rem;
 }
 
-.input-login{
+.input-login {
     font-size: 1.5rem;
     width: 50%;
     margin-bottom: 20px;
 }
 
 
-
-
-.img-cards{
+.img-cards {
     width: 70%;
     object-fit: cover;
     text-align: center;
 }
 
-.card-group{
+.card-group {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
     justify-items: center;
 }
 
-.card{
+.card {
     background-color: #F6F6F6;
     align-items: center;
     margin: 50px;
@@ -66,54 +63,54 @@ body{
     max-width: 320px;
 }
 
-.card-title{
+.card-title {
     font-size: 2.5rem;
     font-weight: 700;
 }
 
-.card-text{
+.card-text {
     font-size: 1.5rem;
 }
 
-.btn-compra{
+.btn-compra {
     font-size: 2rem;
 }
 
-.btn-dark{
+.btn-dark {
     font-size: 1.5rem;
     border-radius: 5px;
 }
 
-.btn-cierre{
+.btn-cierre {
     background-color: lightgray;
     font-size: 1.5rem;
     border-radius: 5px;
 }
 
-.btn-dark:hover{
+.btn-dark:hover {
     background-color: whitesmoke;
     color: #202020;
     border: #202020 solid 2px;
 }
 
-.btn-cierre:hover{
+.btn-cierre:hover {
     background-color: whitesmoke;
     color: #202020;
     border: #202020 solid 2px;
 }
 
-#btn-carrito{
+#btn-carrito {
     background-color: #F8F9FA;
     border: #F8F9FA;
     position: relative;
 }
 
-.carrito{
+.carrito {
     width: 60px;
     height: 35px;
 }
 
-.carrito-contador{
+.carrito-contador {
     position: absolute;
     left: 23px;
     top: 1px;
@@ -123,15 +120,60 @@ body{
 }
 
 
-.modal-body p{
+.modal-body p {
     font-size: 1.4rem;
 }
 
-.toastify{
+.toastify {
     font-size: 1.2rem;
 }
 
-.swal2-popup{
+.swal2-popup {
     font-size: 1.2rem;
     height: 30%;
+}
+
+.btn-proximamente {
+    text-align: center;
+    pointer-events: none !important;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    width: 100%;
+    color: white;
+    background-color: black;
+}
+
+#nuevosProductos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    grid-column-gap: 10%;
+    margin-left: 50px;
+    margin-right: 20px;
+    color: white;
+}
+.divPadre{
+    display: flex;
+    justify-content: center;
+}
+
+
+.proximosProd {
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+    max-width: 50%;
+    padding: 1rem;
+}
+
+#imgProximo {
+    width: 100%;
+}
+
+.tituloProximo {
+    font-size: 2.5rem;
+}
+
+.descripcionProximo{
+    font-size: 1.5rem;
 }
